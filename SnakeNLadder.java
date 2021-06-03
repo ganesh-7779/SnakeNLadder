@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class SnakeNLadder {
 	
+Random random = new Random();
+	
+	int WIN_POSITION=100;
+	
 	public static void main (String[]args) {
 		
 		SnakeNLadder sn = new SnakeNLadder();
@@ -12,28 +16,36 @@ public class SnakeNLadder {
 	}
 	
 	public void Start_Game_Position() {
-		int playerPosition = 0, diceValue=0;
-		int playerDiceCount=0;
-		
+		int player1Position = 0, diceValue=0, player1DiceCount=0;
+		int player2Position = 0, player2DiceCount=0;
+		int currentPlayer = -1;
 		while(true) {
 			diceValue = DiceRoll();
-			playerDiceCount++;
-			playerPosition = PlayerPosition(playerDiceCount, diceValue);
-			System.out.println("Player position: "+playerPosition);
-			if(playerPosition == WIN_POSITION) {
+			
+			if(currentPlayer == -1) {
+			player1DiceCount++;
+			player1Position = PlayerPosition(player1DiceCount, diceValue);
+			System.out.println("Player position: "+player1Position);
+			if(player1Position == WIN_POSITION) {
 				System.out.println("Player wins the game");
-				System.out.println("Die rolled: "+playerDiceCount);
+				System.out.println("Die rolled: "+player1DiceCount);
 				break;
 			}
 		}
+			
+			else {
+				player2DiceCount++;
+				player2Position =PlayerPosition(player2DiceCount, diceValue);
+				System.out.println("Player2 position: "+player2Position);
+				if(player2Position == WIN_POSITION) {
+					System.out.println("Player2 wins the game");
+					System.out.println("Die rolled: "+player2DiceCount);
+					break;
+				}
+			}
+				currentPlayer = -(currentPlayer);
+		}
 	}
-	
-	
-	
-	
-	Random random = new Random();
-	int player = 0;
-	int WIN_POSITION=100;
 	
 public int DiceRoll() {
 	
