@@ -39,14 +39,16 @@ public int DiceRoll() {
 		}
 		if (player < 0) {
 			player =0;
-		}
+			}
 		
+		}
+		else {
+			player = player - diceValue;
+			
 		}
 		
 		return player;
 
-
-
-}
+		}
 	}
 
