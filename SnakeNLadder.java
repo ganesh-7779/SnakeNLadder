@@ -12,4 +12,17 @@ public class SnakeNLadder {
 	int player = 0;
 	int WIN_POSITION=100;
 	
-	}
+public int DiceRoll() {
+	
+	int ran=1+random.nextInt(6);
+	
+	return ran;
+			
+
+
+
+
+}
+
+
+}
