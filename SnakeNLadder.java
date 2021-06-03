@@ -17,8 +17,26 @@ public int DiceRoll() {
 	int ran=1+random.nextInt(6);
 	
 	return ran;
+}
 			
-
+	public int PlayerPosition(int player, int diceValue) {
+		int option;
+		option= random.nextInt(3);
+		switch(option) {
+		case 0:
+			System.out.println("No play");
+			break;
+		case 1:
+			System.out.println("Ladder");
+			player = player + diceValue;
+			break;
+		default:
+			System.out.println("Snake");
+			player = player - diceValue;
+			break;
+		
+		}
+		return player;
 
 
 
