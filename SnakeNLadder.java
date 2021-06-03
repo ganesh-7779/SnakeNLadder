@@ -20,6 +20,7 @@ public int DiceRoll() {
 }
 			
 	public int PlayerPosition(int player, int diceValue) {
+		if(player < WIN_POSITION) {
 		int option;
 		option= random.nextInt(3);
 		switch(option) {
@@ -36,11 +37,16 @@ public int DiceRoll() {
 			break;
 		
 		}
+		if (player < 0) {
+			player =0;
+		}
+		
+		}
+		
 		return player;
 
 
 
 }
+	}
 
-
-}
