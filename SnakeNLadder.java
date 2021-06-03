@@ -6,7 +6,30 @@ public class SnakeNLadder {
 	
 	public static void main (String[]args) {
 		
+		SnakeNLadder sn = new SnakeNLadder();
+		
+		sn.Start_Game_Position();
 	}
+	
+	public void Start_Game_Position() {
+		int playerPosition = 0, diceValue=0;
+		int playerDiceCount=0;
+		
+		while(true) {
+			diceValue = DiceRoll();
+			playerDiceCount++;
+			playerPosition = PlayerPosition(playerDiceCount, diceValue);
+			System.out.println("Player position: "+playerPosition);
+			if(playerPosition == WIN_POSITION) {
+				System.out.println("Player wins the game");
+				System.out.println("Die rolled: "+playerDiceCount);
+				break;
+			}
+		}
+	}
+	
+	
+	
 	
 	Random random = new Random();
 	int player = 0;
